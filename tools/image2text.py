@@ -5,8 +5,8 @@ import pytesseract
 
 def crop(imageFileName, cropXStart,cropXEnd,cropYStart,cropYEnd):
     """crops the given image with the given bounding box coordinates."""
-    print('cropping')
-    print(type(cropXEnd))
+    #print('cropping')
+    #print(type(cropXEnd))
     image = cv2.imread(imageFileName)
     croppedImage = image[cropXStart:cropXEnd,cropYStart:cropYEnd]
     #cv2.imshow("cropped "+imageFileName,croppedImage)
@@ -16,6 +16,8 @@ def crop(imageFileName, cropXStart,cropXEnd,cropYStart,cropYEnd):
 def ocr(image):
     tesseract_config = r'--oem 1'
     textDetails = pytesseract.image_to_string(image)
+    #replace '\x0c'
+    textDetails = textDetails.replace('\x0c','')
     #print(textDetails)
     #print('returning from crop')
     return textDetails
@@ -53,7 +55,7 @@ def main():
                 cropYEnd = int(boundingBox[2])
                 cropXStart = int(boundingBox[1])
                 cropXEnd = int(boundingBox[3])
-                print("bbox coordinates for image are "+str(boundingBox))
+                #print("bbox coordinates for image are "+str(boundingBox))
                 cropped_image = crop(imageFileName,cropXStart,cropXEnd,cropYStart,cropYEnd)
                 cropped_images.append(cropped_image)
             print('created total number of cropped images: '+str(len(cropped_images)))
@@ -63,6 +65,7 @@ def main():
                 textData = ocr(cropped_image)
                 textDataStrings.append(textData)
             print('OCR results:')
+            print('total number of results:'+str(len(textDataStrings)))
             print(textDataStrings)
 
         print('done OCRing')
