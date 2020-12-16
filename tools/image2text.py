@@ -1,6 +1,7 @@
 import cv2
 import sys
 import json
+
 def crop(imageFileName, cropXStart,cropXEnd,cropYStart,cropYEnd):
     """crops the given image with the given bounding box coordinates."""
     print('cropping')
@@ -12,6 +13,7 @@ def crop(imageFileName, cropXStart,cropXEnd,cropYStart,cropYEnd):
     return croppedImage
 
 def main():
+    cropped_images = list()
     if len(sys.argv) < 2:
         print('usage: image2text.py jsonFileName.jsonFileName')
     else:
@@ -39,10 +41,10 @@ def main():
                         imageFileName = image['file_name']
                 boundingBox = annotation['bbox']
                 print("cropping image"+str(image))
-                cropXStart = int(boundingBox[0])
-                cropXEnd = int(boundingBox[0])+int(boundingBox[2])
-                cropYStart = int(boundingBox[1])
-                cropYEnd = int(boundingBox[1]) + int(boundingBox[3])
+                cropYStart = int(boundingBox[0])
+                cropYEnd = int(boundingBox[2])
+                cropXStart = int(boundingBox[1])
+                cropXEnd = int(boundingBox[3])
                 print("bbox coordinates for image are "+str(boundingBox))
                 cropped_image = crop(imageFileName,cropXStart,cropXEnd,cropYStart,cropYEnd)
                 cropped_images.append(cropped_image)
