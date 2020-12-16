@@ -1,6 +1,7 @@
 import cv2
 import sys
 import json
+import pytesseract
 
 def crop(imageFileName, cropXStart,cropXEnd,cropYStart,cropYEnd):
     """crops the given image with the given bounding box coordinates."""
@@ -8,9 +9,16 @@ def crop(imageFileName, cropXStart,cropXEnd,cropYStart,cropYEnd):
     print(type(cropXEnd))
     image = cv2.imread(imageFileName)
     croppedImage = image[cropXStart:cropXEnd,cropYStart:cropYEnd]
-    cv2.imshow("cropped "+imageFileName,croppedImage)
-    cv2.waitKey(0)
+    #cv2.imshow("cropped "+imageFileName,croppedImage)
+    #cv2.waitKey(0)
     return croppedImage
+
+def ocr(image):
+    tesseract_config = r'--oem 1'
+    textDetails = pytesseract.image_to_string(image)
+    #print(textDetails)
+    #print('returning from crop')
+    return textDetails
 
 def main():
     cropped_images = list()
@@ -49,7 +57,15 @@ def main():
                 cropped_image = crop(imageFileName,cropXStart,cropXEnd,cropYStart,cropYEnd)
                 cropped_images.append(cropped_image)
             print('created total number of cropped images: '+str(len(cropped_images)))
-        print('done cropping')
+            textDataStrings = []
+            #cv2.imwrite('cropped.png',cropped_images[0])
+            for cropped_image in cropped_images:
+                textData = ocr(cropped_image)
+                textDataStrings.append(textData)
+            print('OCR results:')
+            print(textDataStrings)
+
+        print('done OCRing')
     print('exitting')
 
 if __name__ == '__main__':
