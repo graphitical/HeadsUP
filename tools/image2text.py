@@ -8,6 +8,7 @@ def crop(imageFileName, cropXStart,cropXEnd,cropYStart,cropYEnd):
     image = cv2.imread(imageFileName)
     croppedImage = image[cropXStart:cropXEnd,cropYStart:cropYEnd]
     cv2.imshow("cropped "+imageFileName,croppedImage)
+    cv2.waitKey(0)
     return croppedImage
 
 def main():
