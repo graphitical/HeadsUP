@@ -1,7 +1,7 @@
 # HeadsUP: Improving Document Structure Recognition to Support Automatic Accessible PDF Generation
 by [Venkatesh Potluri](https://venkateshpotluri.me), [Daniel Revier](https://make4all.org/portfolio/daniel-revier/) and [Taylor Gotfrid](https://make4all.org/portfolio/taylor-gotfrid/)
 
-[![Watch the video](https://img.youtube.com/vi/GpforMeYBxE/hqdefault.jpg)](https://www.youtu.be/GpforMeYBxE)
+[![Watch the video](https://img.youtube.com/vi/GpforMeYBxE/hqdefault.jpg)](https://youtu.be/GpforMeYBxE)
 
 ## Abstract
 PDFs are often produced with absent or incorrect accessibility tags resulting in missing information about document structure, tables, reading order, images, etc. These missing tags can result in an incomprehensible reading experience for screen reader users. Identifying heading levels will improve the overall readability of the document as well as the logical formatting of the document. For this project, we developed a dataset for a document analysis RCNN (region based convolutional neural network) to improve heading and heading level identification. We first created our dataset composed of PDFs and the corresponding HTML version of the PDFs from the CHI 2019 conference proceedings. We use a detectron2 implementation of an RCNN model pre-trained on the PubLayNet dataset to extract labels (e.g. title, text, figure), then correlate those extracted features via optical character recognition (OCR) with heading levels using the corresponding HTML files. For future work we hope to use transfer learning to retrain PubLayNet to include heading level detection.
