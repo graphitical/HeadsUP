@@ -1,7 +1,7 @@
 # Headsup: Improving Document Structure Recognition to Support Automatic Accessible PDF Generation
 by [Venkatesh Potluri](https://venkateshpotluri.me), [Daniel Revier](https://make4all.org/portfolio/daniel-revier/) and [Taylor Gotfrid](https://make4all.org/portfolio/taylor-gotfrid/)
 
-## abstract
+## Abstract
 PDFs are often produced with absent or incorrect accessibility tags resulting in missing information about document structure, tables, reading order, images, etc. These missing tags can result in an incomprehensible reading experience for screen reader users. Identifying heading levels will improve the overall readability of the document as well as the logical formatting of the document. For this project, we developed a dataset for a document analysis RCNN (region based convolutional neural network) to improve heading and heading level identification. We first created our dataset composed of PDFs and the corresponding HTML version of the PDFs from the CHI 2019 conference proceedings. We use a detectron2 implementation of an RCNN model pre-trained on the PubLayNet dataset to extract labels (e.g. title, text, figure), then correlate those extracted features via optical character recognition (OCR) with heading levels using the corresponding HTML files. For future work we hope to use transfer learning to retrain PubLayNet to include heading level detection.
 
 ## Problem Statement
@@ -31,6 +31,6 @@ First, we ran our CHI data through the Detectron2 version of PubLayNet network t
 ## Future Work
 While our exploration for the scope of this class project has been preliminary, we have a pipeline in place to experiment with more ACM HTML paper data (which have the right heading tags) as they become available and we get access to them. Our eventual goals are both exploratory (research) and translatory (deploying our work to benefit end-users). Our exploratory goals involve experimentation of different approaches to produce a state-of-the art heading detection model, and our translatory goals involve integrating these state-of-the art models into existing solutions that automate document accessibility.
 ## References
-[1] Manabe, T., & Tajima, K. (2015). Extracting logical hierarchical structure of HTML documents based on headings. Proceedings of the VLDB Endowment, 8(12), 1606-1617.
-[2] Tuarob, S., Mitra, P., & Giles, C. L. (2015, August). A hybrid approach to discover semantic hierarchical sections in scholarly documents. In 2015 13th international conference on document analysis and recognition (ICDAR) (pp. 1081-1085). IEEE.
-[3] Zhong, X., Tang, J., & Yepes, A. J. (2019, September). Publaynet: largest dataset ever for document layout analysis. In 2019 International Conference on Document Analysis and Recognition (ICDAR) (pp. 1015-1022). IEEE.
+[1] Manabe, T., & Tajima, K. (2015). Extracting logical hierarchical structure of HTML documents based on headings. Proceedings of the VLDB Endowment, 8(12), 1606-1617.  
+[2] Tuarob, S., Mitra, P., & Giles, C. L. (2015, August). A hybrid approach to discover semantic hierarchical sections in scholarly documents. In 2015 13th international conference on document analysis and recognition (ICDAR) (pp. 1081-1085). IEEE.  
+[3] Zhong, X., Tang, J., & Yepes, A. J. (2019, September). Publaynet: largest dataset ever for document layout analysis. In 2019 International Conference on Document Analysis and Recognition (ICDAR) (pp. 1015-1022). IEEE.  
