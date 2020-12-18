@@ -8,7 +8,7 @@ PDFs are often produced with absent or incorrect accessibility tags resulting in
 If given research papers in PDF and HTML format, can we use transfer learning to improve upon heading and heading level detection by using transfer learning on the Detectron2 PubLayNet RCNN model.
 
 ## Dataset
-Our dataset is based on the CHI 2019 conference proceedings. Over the last few years, the ACM has been taking steps towards providing publications in alternative, accessible formats (e.g. HTML, e-reader) through the introduction of their TAPS (The ACM Publication System) publication workflow, and an all-encompassing publication template for all conferences. Consequently, conferences that adopted this workflow have PDF (which may or may not be tagged), and accessible HTML versions (which have defined header levels by default) of their proceedings.
+Our dataset is based on the CHI 2019 conference proceedings. Over the last few years, the ACM has been taking steps towards providing publications in alternative, accessible formats (e.g. HTML, e-reader) through the introduction of their [TAPS (The ACM Publication System)](https://www.acm.org/publications/taps/taps-best-practices) publication workflow, and an [all-encompassing publication template](https://www.acm.org/publications/proceedings-template) for all conferences. Consequently, conferences that adopted this workflow have PDF (which may or may not be tagged), and accessible HTML versions (which have defined header levels by default) of their proceedings.
 
 For our dataset we have 465 PDF/HTML document pairs for a total 5,841 pages painstakingly collected from the Association of Computing Machinery (ACM) Digital Library.
 
