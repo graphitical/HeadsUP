@@ -1,4 +1,4 @@
-# Headsup: Improving Document Structure Recognition to Support Automatic Accessible PDF Generation
+# HeadsUP: Improving Document Structure Recognition to Support Automatic Accessible PDF Generation
 by [Venkatesh Potluri](https://venkateshpotluri.me), [Daniel Revier](https://make4all.org/portfolio/daniel-revier/) and [Taylor Gotfrid](https://make4all.org/portfolio/taylor-gotfrid/)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GpforMeYBxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
